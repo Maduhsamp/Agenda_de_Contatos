@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title id="titulo">
+      Agenda de Contatos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list *ngFor="let contato of this.listaDeContatos">
+  <ion-item (click)="editar(contato)">
+    <ion-avatar><img src="{{contato.downloadURL}}" /></ion-avatar>
+     <ion-label>{{contato.nome}}</ion-label>
+  </ion-item>
+  </ion-list>
+
+
+  <ion-fab horizontal="end" vertical="bottom">
+    <ion-fab-button (click)="irParaCadastrar()" >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

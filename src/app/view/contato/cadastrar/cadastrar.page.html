@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agenda de Contatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nome" placeholder="Insira o nome" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Telefone" type="number" placeholder="Insira o telefone" [(ngModel)]="telefone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email" placeholder="Insira o email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Gênero" placeholder="Selecione" [(ngModel)]="genero">
+        <ion-select-option value="0">Masculino</ion-select-option>
+        <ion-select-option value="1">Feminino</ion-select-option>
+        <ion-select-option value="2">Não Declarado</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-button size="default" color="success" shape="round">
+        <input type="file" (change)="uploadFile($event.target)" />
+      </ion-button>
+    </ion-item>
+
+    <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
+  </ion-list>
+</ion-content>

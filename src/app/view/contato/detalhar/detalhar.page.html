@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agenda de Contatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+ <ion-item>
+  <ion-toggle (ionChange)="habilitar()">Habilitar Edição</ion-toggle>
+ </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nome" placeholder="Insira o nome" [(ngModel)]="nome" disabled="{{edicao}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Telefone" type="number" placeholder="Insira o telefone" [(ngModel)]="telefone" disabled="{{edicao}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email" placeholder="Insira o email" [(ngModel)]="email" disabled="{{edicao}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Gênero" placeholder="Selecione" [(ngModel)]="genero" disabled="{{edicao}}">
+        <ion-select-option value="0">Masculino</ion-select-option>
+        <ion-select-option value="1">Feminino</ion-select-option>
+        <ion-select-option value="2">Não Declarado</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <img src="{{this.contato.downloadURL}}" />
+    <ion-item>
+      <ion-button size="default" color="success" shape="round" disabled="{{edicao}}">
+        <input type="file" (change)="uploadFile($event.target)" />
+      </ion-button>
+    </ion-item>
+     <ion-button expand="full" (click)="editar()" disabled="{{edicao}}">Salvar</ion-button>
+     <ion-button expand="full" (click)="excluir()" color="danger" disabled="{{edicao}}">Excluir</ion-button>
+  </ion-list>
+</ion-content>
